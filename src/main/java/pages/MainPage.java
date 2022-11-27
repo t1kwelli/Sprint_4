@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -6,47 +6,58 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public class MainPage {
     private WebDriver driver;
 
     // Вопросы в разделе "О важном"
-
     // 1 Вопрос "Сколько это стоит? И как оплатить?"
     private By questionPayment = By.id("accordion__heading-0");
+
     // 2 Вопрос "Хочу сразу несколько самокатов! Так можно?"
     private By questionSeveralScooters = By.id("accordion__heading-1");
+
     // 3 Вопрос "Как рассчитывается время аренды?"
     private By questionRentalTime = By.id("accordion__heading-2");
+
     // 4 Вопрос "Можно ли заказать самокат прямо на сегодня?"
     private By questionScooterToday = By.id("accordion__heading-3");
+
     // 5 Вопрос "Можно ли продлить заказ или вернуть самокат раньше?"
     private By questionChangeRentalTime = By.id("accordion__heading-4");
+
     // 6 Вопрос "Вы привозите зарядку вместе с самокатом?"
     private By questionCharger = By.id("accordion__heading-5");
+
     // 7 Вопрос "Можно ли отменить заказ?"
     private By questionCancelOrder = By.id("accordion__heading-6");
+
     // 8 Вопрос "Я жизу за МКАДом, привезёте?"
     private By questionPlaceDelivery = By.id("accordion__heading-7");
 
     // Ответы в разделе "О важном"
-
     // 1 Ответ "Сутки — 400 рублей. Оплата курьеру — наличными или картой."
-    private By answerPayment = By.xpath(".//div[@class='Home_FAQ__3uVm4']/div/div[1]/div/p");
+    private By answerPayment = By.id("accordion__panel-0");
+
     // 2 Ответ "Пока что у нас так: один заказ — один самокат.."
-    private By answerSeveralScooters = By.xpath(".//div[@class='Home_FAQ__3uVm4']/div/div[2]/div/p");
+    private By answerSeveralScooters = By.id("accordion__panel-1");
+
     // 3 Ответ "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени ..."
-    private By answerRentalTime = By.xpath(".//div[@class='Home_FAQ__3uVm4']/div/div[3]/div/p");
+    private By answerRentalTime = By.id("accordion__panel-2");
+
     // 4 Ответ "Только начиная с завтрашнего дня. Но скоро станем расторопнее."
-    private By answerScooterToday = By.xpath(".//div[@class='Home_FAQ__3uVm4']//div[4]/div/p");
+    private By answerScooterToday = By.id("accordion__panel-3");
+
     // 5 Ответ "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010."
-    private By answerChangeRentalTime = By.xpath(".//div[@class='Home_FAQ__3uVm4']//div[5]/div/p");
+    private By answerChangeRentalTime = By.id("accordion__panel-4");
+
     // 6 Ответ "Самокат приезжает к вам с полной зарядкой.."
-    private By answerCharger = By.xpath(".//div[@class='Home_FAQ__3uVm4']//div[6]/div/p");
+    private By answerCharger = By.id("accordion__panel-5");
+
     // 7 Ответ "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои."
-    private By answerCancelOrder = By.xpath(".//div[@class='Home_FAQ__3uVm4']//div[7]/div/p");
+    private By answerCancelOrder = By.id("accordion__panel-6");
+
     // 8 Ответ "Да, обязательно. Всем самокатов! И Москве, и Московской области."
-    private By answerPlaceDelivery = By.xpath(".//div[@class='Home_FAQ__3uVm4']//div[8]/div/p");
+    private By answerPlaceDelivery = By.id("accordion__panel-7");
 
     // Кнопка "Заказать" (вверху страницы)
     private By orderButton = By.xpath(".//div[@class='Header_Header__214zg']//button[text()='Заказать']");
@@ -57,7 +68,6 @@ public class MainPage {
     public MainPage (WebDriver driver) {
         this.driver = driver;
     }
-
 
     // Метод для нажатия на стрелку вопроса 1
     public void questionPaymentClick () {
@@ -157,7 +167,6 @@ public class MainPage {
 
     // Метод для нажатия на кнопку "Заказать" вверху страницы
     public void clickOrderButton () {
-
         driver.findElement(orderButton).click();
     }
 
@@ -173,10 +182,12 @@ public class MainPage {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(answerPayment));
     }
+
     public void waitForLoadTextAnswerSeveralScooters() {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(answerSeveralScooters));
     }
+
     public void waitForLoadTextAnswerRentalTime() {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(answerRentalTime));
@@ -206,5 +217,4 @@ public class MainPage {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(answerPlaceDelivery));
     }
-
 }

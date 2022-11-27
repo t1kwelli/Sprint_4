@@ -1,4 +1,4 @@
-import Pages.MainPage;
+import pages.MainPage;
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.Dimension;
@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertEquals;
 
 public class QuestionAnswerTest {
-
     private WebDriver driver = new ChromeDriver();
 
     @Test
@@ -154,6 +153,4 @@ public class QuestionAnswerTest {
     public void teardown () {
         driver.quit();
     }
-
-
 }

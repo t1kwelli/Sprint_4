@@ -1,11 +1,10 @@
-package Pages;
+package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrderPage {
-
     private WebDriver driver;
 
     public OrderPage(WebDriver driver) {
@@ -15,7 +14,6 @@ public class OrderPage {
     // Надпись для кого самокат (для ожидания прогрузки страницы)
     private By labelScooter = By.className("Order_Header__BZXOb");
 
-
     // Надпись "Про аренду" (для ожидания прогрузки страницы)
     private By labelRental = By.className("Order_Header__BZXOb");
 
@@ -24,7 +22,6 @@ public class OrderPage {
 
     // Текст подтверждения заказа (для ожидания прогрузки страницы)
     private By textConfirmOrder = By.className("Order_ModalHeader__3FDaJ");
-
 
     // Поле "Имя"
     private By nameField = By.xpath(".//div[@class='Order_Form__17u6u']/div[1]/input");
@@ -72,7 +69,6 @@ public class OrderPage {
 
     // Кнопка подтверждения заказа ("Да")
     private By confirmButton = By.xpath(".//div[@class='Order_Modal__YZ-d3']/div[2]/button[2]");
-
 
     // Метод для ввода имени
     public void enterName(String newName) {
@@ -161,7 +157,6 @@ public class OrderPage {
     public void clickOrderButton() {
         driver.findElement(orderButton).click();
     }
-
 
     // Общий метод для ввода информации про аренду и нажатие на кнопку "Заказать"
     public void enterInfoAboutRental(String dataBringScooter, String courierComment) {

@@ -1,5 +1,5 @@
-import Pages.MainPage;
-import Pages.OrderPage;
+import pages.MainPage;
+import pages.OrderPage;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,18 +7,19 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 
 @RunWith(Parameterized.class)
 public class OrderTest {
-
     private WebDriver driver = new ChromeDriver();
 
     private final String name;
+
     private final String surname;
+
     private final String address;
+
     private final String metroStation;
+
     private final String telephone;
 
     private final String dataBringScooter;
@@ -38,7 +39,7 @@ public class OrderTest {
         this.textConfirmOrder = textConfirmOrder;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1} {2} {3} {4} {5} {6} {7}")
     public static Object[][] getInfo () {
         return new Object[][] {
                 {"Дмитрий", "Кадысев", "Нагатинская 25", "Черкизовская", "89273121212", "27.11.2022", "Тест1", "Заказ оформлен"},
@@ -48,7 +49,6 @@ public class OrderTest {
 
     @Test
     public void orderTest() {
-
         driver.get("https://qa-scooter.praktikum-services.ru/");
         Dimension dimension = new Dimension(1920, 1080);
         driver.manage().window().setSize(dimension);
@@ -65,7 +65,6 @@ public class OrderTest {
 
     @Test
     public void orderAtTheBottomTest() {
-
         driver.get("https://qa-scooter.praktikum-services.ru/");
         Dimension dimension = new Dimension(1920, 1080);
         driver.manage().window().setSize(dimension);
@@ -84,5 +83,4 @@ public class OrderTest {
     public void teardown () {
         driver.quit();
     }
-
 }
